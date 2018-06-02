@@ -13,8 +13,7 @@ Logger::Logger() {
 Logger::~Logger() {
 }
 string Logger::getTime() {
-	time_t vtime;
-	time(&vtime);
+	time_t vtime = time(nullptr);
 	char buffor[MAX_LEN];
 	tm timeTM = *localtime(&vtime);
 	strftime(buffor, MAX_LEN, "%x;%H:%M:%S", &timeTM);
