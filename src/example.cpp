@@ -3,7 +3,7 @@
 // Author      : Krzysztof Wróblewski
 // Version     :
 // Copyright   : Your copyright notice
-// Description : This is example how to use logger.
+// Description : This is example how to use logger..
 //============================================================================
 
 #include <iostream>
