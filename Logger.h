@@ -19,8 +19,8 @@ using namespace std;
 
 class Logger {
 private:
-	fstream plik;
-	string logfile = "log.txt";
+	fstream logFile;
+	string LogFileName = "log.txt";
 	int MAX_LEN = 80;
 	string getTime();
 	string generateLog(string type, string msg);
