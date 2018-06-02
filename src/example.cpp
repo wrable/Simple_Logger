@@ -3,7 +3,7 @@
 // Author      : Krzysztof Wróblewski
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : This is example how to use logger.
 //============================================================================
 
 #include <iostream>
