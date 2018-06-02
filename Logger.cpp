@@ -38,9 +38,9 @@ void Logger::saveLogToFile(string buffer, string logfile) {
 }
 
 string Logger::generateLog(string type, string msg) {
-	stringstream buffer;
-	buffer << "["<< type <<"];@" << getlogin() << ";" << getTime() << ";" << msg << endl;
-	return buffer.str();
+	stringstream buffor;
+	buffor << "["<< type <<"];@" << getlogin() << ";" << getTime() << ";" << msg << endl;
+	return buffor.str();
 }
 void Logger::info(string msg) {
 	saveLogToFile(generateLog("Info", msg), logfile);
