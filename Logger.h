@@ -9,11 +9,11 @@
 #define LOGGER_H_
 
 #include <iostream>
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <fstream>
 #include <unistd.h>
-#include <time.h>
+#include <ctime>
 #include <sstream>
 using namespace std;
 
@@ -21,14 +21,15 @@ class Logger {
 private:
 	fstream plik;
 	string logfile = "log.txt";
-	string Get_Time();
-	string Generate_Log(string type, string msg);
-	void Save_Log_To_File(string msg,string logfile);
+	int MAX_LEN = 80;
+	string getTime();
+	string generateLog(string type, string msg);
+	void saveLogToFile(string msg,string logfile);
 public:
-	void Info(string msg);
-	void Error(string msg);
-	void Debug(string msg);
-	void Clean_Log();
+	void info(string msg);
+	void error(string msg);
+	void debug(string msg);
+	void cleanLog();
 
 	Logger();
 	virtual ~Logger();

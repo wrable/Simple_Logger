@@ -12,16 +12,16 @@ Logger::Logger() {
 
 Logger::~Logger() {
 }
-string Logger::Get_Time() {
-	time_t czas;
-	time(&czas);
-	char buffor[80];
-	tm czasTM = *localtime(&czas);
-	strftime(buffor, 80, "%x;%H:%M:%S", &czasTM);
+string Logger::getTime() {
+	time_t vtime;
+	time(&vtime);
+	char buffor[MAX_LEN];
+	tm timeTM = *localtime(&vtime);
+	strftime(buffor, MAX_LEN, "%x;%H:%M:%S", &timeTM);
 	return (string) buffor;
 }
 
-void Logger::Clean_Log() {
+void Logger::cleanLog() {
 	plik.open(logfile, ios::out | ios::trunc);
 	if (plik.is_open()) {
 		plik.close();
@@ -29,7 +29,7 @@ void Logger::Clean_Log() {
 		cout << "[Clean_Log] Can't create or open log file !" << endl;
 }
 
-void Logger::Save_Log_To_File(string buffer, string logfile) {
+void Logger::saveLogToFile(string buffer, string logfile) {
 	plik.open(logfile, ios_base::app);
 	if (plik.is_open()) {
 		plik << buffer;
@@ -38,19 +38,19 @@ void Logger::Save_Log_To_File(string buffer, string logfile) {
 		cout << "[Save_Log_To_File]Can't create or open log file !" << endl;
 }
 
-string Logger::Generate_Log(string type, string msg) {
+string Logger::generateLog(string type, string msg) {
 	stringstream buffer;
-	buffer << "["<< type <<"];@" << getlogin() << ";" << Get_Time() << ";" << msg << endl;
+	buffer << "["<< type <<"];@" << getlogin() << ";" << getTime() << ";" << msg << endl;
 	return buffer.str();
 }
-void Logger::Info(string msg) {
-	Save_Log_To_File(Generate_Log("Info", msg), logfile);
+void Logger::info(string msg) {
+	saveLogToFile(generateLog("Info", msg), logfile);
 }
 
-void Logger::Error(string msg) {
-	Save_Log_To_File(Generate_Log("Error", msg), logfile);
+void Logger::error(string msg) {
+	saveLogToFile(generateLog("Error", msg), logfile);
 }
 
-void Logger::Debug(string msg) {
-	Save_Log_To_File(Generate_Log("Debug", msg), logfile);
+void Logger::debug(string msg) {
+	saveLogToFile(generateLog("Debug", msg), logfile);
 }
