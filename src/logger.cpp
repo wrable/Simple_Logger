@@ -5,7 +5,7 @@
  *      Author: wrable
  */
 
-#include "Logger.h"
+#include "logger.h"
 
 Logger::Logger() {
 }

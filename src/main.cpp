@@ -7,11 +7,11 @@
 //============================================================================
 
 #include <iostream>
-#include "lib/Logger.h"
+#include "logger.h"
 using namespace std;
 
 int main() {
-	cout << "Example logger program" << endl; // prints !!!Hello World!!!
+	cout << "Example logger program \n " << endl; // prints !!!Hello World!!!
 	Logger Logger;
 	Logger.cleanLog();
 	Logger.error("to jest error");

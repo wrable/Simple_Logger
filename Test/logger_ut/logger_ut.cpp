@@ -1,6 +1,7 @@
 #include "CppUTest/TestHarness.h"
-#include "lib/Logger.h"
-
+#include "logger.h"
+#include <cstdio>
+#include <fstream>
 
 TEST_GROUP(FirstTestGroup)
 {
