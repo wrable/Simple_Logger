@@ -19,7 +19,11 @@ script:
     - cd build
     - cmake ..
     - make 
-    - make test
+    
+jobs:
+  include:
+    - stage: test
+      script: make test   
 
 before_install:
     # Print used compiler versions.
