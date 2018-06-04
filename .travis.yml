@@ -12,6 +12,10 @@ addons:
       - gcc-7
       - g++-7
 
+stages:
+  - compile
+  - test
+
 script:
     - export CC=gcc-7
     - export CXX=g++-7
@@ -20,13 +24,6 @@ script:
     - cmake ..
     - make 
     - make test
-
-jobs:
-  include:
-    - stage: test
-      script:
-       - cd build
-       - make test   
        
 before_install:
     # Print used compiler versions.
