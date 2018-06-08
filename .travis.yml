@@ -16,8 +16,8 @@ addons:
       - g++-7
 
 stages:
-  - compile
-  - test
+  - compile + test
+
 
 script:
     - export CC=gcc-7
